@@ -11,7 +11,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.2
+  google_fonts: ^2.1.0
 
 dev_dependencies:
   flutter_test:
@@ -20,9 +20,12 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - google_fonts/
+    - assets/images/
 
 flutter_native_splash:
   color: "#ffffff"
-  image: "assets/splash.png"
+  image: "assets/splash/splash.png"
   color_dark: "#000000"
-  image_dark: "assets/splash_dark.png"
+  image_dark: "assets/splash/splash_dark.png"
