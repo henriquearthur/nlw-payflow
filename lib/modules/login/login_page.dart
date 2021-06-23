@@ -1,22 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:payflow/modules/login/components/social_login/google_login_button.dart';
+import 'package:payflow/modules/login/login_controller.dart';
+import 'package:payflow/shared/themes/app_colors.dart';
 
 import 'components/login_header.dart';
 import 'components/login_title.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  LoginPage({Key? key}) : super(key: key);
+
+  final LoginController loginController = LoginController();
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const LoginHeader(),
-        const LoginTitle(),
-        GoogleLoginButton(
-          onTap: () => print('clicked'),
-        ),
-      ],
+    return Scaffold(
+      backgroundColor: AppColors.background,
+      body: Column(
+        children: [
+          const LoginHeader(),
+          const LoginTitle(),
+          GoogleLoginButton(
+            onTap: loginController.googleSignIn,
+          ),
+        ],
+      ),
     );
   }
 }
