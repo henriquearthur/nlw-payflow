@@ -43,7 +43,6 @@ class LoginHeader extends StatelessWidget {
                     AppColors.background.withOpacity(0),
                     AppColors.background
                   ],
-                  // tileMode: TileMode.repeated,
                 ),
               ),
             ),

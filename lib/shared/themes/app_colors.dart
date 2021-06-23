@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   static final primary = Color(0xFFFF941A);
+  static final gradient = [Color(0xFFFFC380), primary];
   static final grey = Color(0xFF585666);
   static final delete = Color(0xFF585666);
   static final heading = Color(0xFF585666);
