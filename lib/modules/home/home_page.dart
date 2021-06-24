@@ -15,6 +15,7 @@ class HomePage extends StatelessWidget {
     // TODO: Criar efeito gradiente entre o conteúdo da tela e a BottomNavigationBar
 
     return Scaffold(
+      backgroundColor: AppColors.background,
       appBar: UserHeader(
         user: User(name: "Henrique", email: "hnrq.art"),
         height: 184,
@@ -40,7 +41,7 @@ class HomePage extends StatelessWidget {
                   homeController.changePage(homeController.pages[0]),
             ),
             InkWell(
-              onTap: () {},
+              onTap: homeController.openBarcodeScanner,
               child: Container(
                 width: 56,
                 height: 56,
