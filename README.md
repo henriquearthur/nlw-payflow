@@ -7,3 +7,5 @@ I'm a experienced Flutter developer and I created this app on Next Level Week (N
 
 ## Resources
 - [flutter_native_splash](https://pub.dev/packages/flutter_native_splash) for native splash screens on Android, iOS and Web.
+- [get_it](https://pub.dev/packages/get_it) for dependency injection
+- [mobx](https://pub.dev/packages/mobx) for state management
