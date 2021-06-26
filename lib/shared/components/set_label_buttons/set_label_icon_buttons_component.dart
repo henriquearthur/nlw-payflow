@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:payflow/shared/label_button.dart';
+import 'package:payflow/shared/components/label_button/label_button_component.dart';
 import 'package:payflow/shared/themes/app_colors.dart';
 
 class SetLabelIconButtonsComponent extends StatelessWidget {
@@ -25,7 +25,7 @@ class SetLabelIconButtonsComponent extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
-            child: LabelButton(
+            child: LabelButtonComponent(
               label: primaryLabel,
               onPressed: primaryOnPressed,
             ),

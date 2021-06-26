@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class DefaultTabLoading extends StatelessWidget {
-  const DefaultTabLoading({Key? key}) : super(key: key);
+class DefaultTabLoadingComponent extends StatelessWidget {
+  const DefaultTabLoadingComponent({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

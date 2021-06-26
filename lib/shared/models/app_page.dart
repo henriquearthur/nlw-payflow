@@ -1,7 +1,7 @@
-import 'package:payflow/shared/components/default_tab_loading.dart';
+import 'package:payflow/shared/components/default_tab_loading/default_tab_loading_component.dart';
 
 class AppPage {
-  Function loading = () => DefaultTabLoading();
+  Function loading = () => DefaultTabLoadingComponent();
   Function page;
   bool isLoaded = false;
 

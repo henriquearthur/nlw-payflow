@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:payflow/shared/components/divider_vertical.dart';
-import 'package:payflow/shared/label_button.dart';
+import 'package:payflow/shared/components/divider_vertical/divider_vertical_component.dart';
+import 'package:payflow/shared/components/label_button/label_button_component.dart';
 import 'package:payflow/shared/themes/app_colors.dart';
 import 'package:payflow/shared/themes/app_text_styles.dart';
 
@@ -40,16 +40,16 @@ class SetLabelButtonsComponent extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Expanded(
-                  child: LabelButton(
+                  child: LabelButtonComponent(
                     label: primaryLabel,
                     onPressed: primaryOnPressed,
                     style:
                         enablePrimaryColor ? AppTextStyles.buttonPrimary : null,
                   ),
                 ),
-                DividerVertical(),
+                DividerVerticalComponent(),
                 Expanded(
-                  child: LabelButton(
+                  child: LabelButtonComponent(
                     label: secondaryLabel,
                     onPressed: secondaryOnPressed,
                     style: enableSecondaryColor
