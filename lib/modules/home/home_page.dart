@@ -14,8 +14,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: Criar efeito gradiente entre o conteúdo da tela e a BottomNavigationBar
-
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: UserHeaderComponent(

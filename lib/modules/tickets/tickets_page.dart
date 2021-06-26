@@ -15,18 +15,9 @@ class TicketsPage extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.only(top: 32, bottom: 24),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Meus boletos",
-                  style: AppTextStyles.titleBoldHeading,
-                ),
-                Text(
-                  "TODO ao total",
-                  style: AppTextStyles.captionBody,
-                ),
-              ],
+            child: Text(
+              "Meus boletos",
+              style: AppTextStyles.titleBoldHeading,
             ),
           ),
           Divider(

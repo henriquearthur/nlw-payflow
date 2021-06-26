@@ -15,18 +15,9 @@ class ExtractPage extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.only(top: 32, bottom: 24),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Meu extrato",
-                  style: AppTextStyles.titleBoldHeading,
-                ),
-                Text(
-                  "TODO pagos",
-                  style: AppTextStyles.captionBody,
-                ),
-              ],
+            child: Text(
+              "Meu extrato",
+              style: AppTextStyles.titleBoldHeading,
             ),
           ),
           Divider(
