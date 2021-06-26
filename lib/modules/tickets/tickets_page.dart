@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:payflow/modules/tickets/components/tickets_pending_component.dart';
 import 'package:payflow/shared/components/ticket_list/ticket_list_component.dart';
 import 'package:payflow/shared/themes/app_colors.dart';
 import 'package:payflow/shared/themes/app_text_styles.dart';

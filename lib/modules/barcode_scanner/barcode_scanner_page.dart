@@ -4,9 +4,7 @@ import 'package:get_it/get_it.dart';
 import 'package:mobx/mobx.dart';
 import 'package:payflow/modules/barcode_scanner/barcode_scanner_controller.dart';
 import 'package:payflow/shared/components/set_label_buttons/set_label_icon_buttons_component.dart';
-import 'package:payflow/shared/label_button.dart';
 import 'package:payflow/shared/components/bottom_sheet_component.dart';
-import 'package:payflow/shared/components/set_label_buttons/set_label_buttons_component.dart';
 import 'package:payflow/shared/services/navigator_service.dart';
 import 'package:payflow/shared/themes/app_colors.dart';
 import 'package:payflow/shared/themes/app_text_styles.dart';
@@ -44,7 +42,8 @@ class _BarcodeScannerPageState extends State<BarcodeScannerPage> {
   goToInsertTicketPage() => GetIt.I
       .get<NavigatorService>()
       .currentState!
-      .pushReplacementNamed('/insert-ticket');
+      .pushReplacementNamed('/insert-ticket',
+          arguments: controller.status.barcode);
 
   @override
   Widget build(BuildContext context) {

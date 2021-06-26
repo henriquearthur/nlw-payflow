@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:payflow/shared/models/ticket.dart';
 import 'package:payflow/shared/services/navigator_service.dart';
+import 'package:payflow/shared/tickets/tickets_controller.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class InsertTicketController {
@@ -39,6 +40,7 @@ class InsertTicketController {
 
     if (form!.validate()) {
       await saveTicket();
+      GetIt.I.get<TicketsController>().getTickets();
       GetIt.I.get<NavigatorService>().currentState!.pop();
     }
   }

@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:get_it/get_it.dart';
 import 'package:payflow/modules/home/home_controller.dart';
+import 'package:payflow/shared/auth/auth_controller.dart';
 import 'package:payflow/shared/components/user_header.dart';
-import 'package:payflow/shared/models/user.dart';
 import 'package:payflow/shared/themes/app_colors.dart';
 
 class HomePage extends StatelessWidget {
   final homeController = HomeController();
+  final authController = GetIt.I.get<AuthController>();
 
   HomePage({Key? key}) : super(key: key);
 
@@ -17,8 +19,9 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: UserHeader(
-        user: User(name: "Henrique", email: "hnrq.art"),
+        user: authController.user,
         height: 184,
+        // TODO: Configurar essa visibilidade para um controller global e alterar valor quando mudar de page
         showPendingTickets: true,
       ),
       body: Observer(
@@ -32,35 +35,43 @@ class HomePage extends StatelessWidget {
       ),
       bottomNavigationBar: Container(
         height: 90,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            IconButton(
-              icon: Icon(Icons.home),
-              color: AppColors.primary,
-              onPressed: () =>
-                  homeController.changePage(homeController.pages[0]),
-            ),
-            InkWell(
-              onTap: homeController.openBarcodeScanner,
-              child: Container(
-                width: 56,
-                height: 56,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5),
-                  color: AppColors.primary,
+        child: Observer(
+          builder: (_) {
+            return Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                IconButton(
+                  icon: Icon(Icons.home),
+                  color: homeController.currentPage == 0
+                      ? AppColors.primary
+                      : AppColors.body,
+                  onPressed: () =>
+                      homeController.changePage(homeController.pages[0]),
                 ),
-                child:
-                    Icon(Icons.add_box_outlined, color: AppColors.background),
-              ),
-            ),
-            IconButton(
-              icon: Icon(Icons.description_outlined),
-              color: AppColors.body,
-              onPressed: () =>
-                  homeController.changePage(homeController.pages[1]),
-            )
-          ],
+                InkWell(
+                  onTap: homeController.openBarcodeScanner,
+                  child: Container(
+                    width: 56,
+                    height: 56,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: AppColors.primary,
+                    ),
+                    child: Icon(Icons.add_box_outlined,
+                        color: AppColors.background),
+                  ),
+                ),
+                IconButton(
+                  icon: Icon(Icons.description_outlined),
+                  color: homeController.currentPage == 1
+                      ? AppColors.primary
+                      : AppColors.body,
+                  onPressed: () =>
+                      homeController.changePage(homeController.pages[1]),
+                )
+              ],
+            );
+          },
         ),
       ),
     );

@@ -3,6 +3,7 @@ import 'package:payflow/modules/tickets/components/tickets_pending_component.dar
 import 'package:payflow/shared/models/user.dart';
 import 'package:payflow/shared/themes/app_colors.dart';
 import 'package:payflow/shared/themes/app_text_styles.dart';
+import 'package:animated_card/animated_card.dart';
 
 class UserHeader extends StatelessWidget implements PreferredSizeWidget {
   final double height;
@@ -59,8 +60,15 @@ class UserHeader extends StatelessWidget implements PreferredSizeWidget {
                     width: 48,
                     height: 48,
                     decoration: BoxDecoration(
-                      color: Colors.blueGrey,
+                      color: AppColors.secondary.withOpacity(0.3),
                       borderRadius: BorderRadius.circular(5),
+                      image: user.photoURL != null
+                          ? DecorationImage(
+                              image: NetworkImage(
+                                user.photoURL!,
+                              ),
+                            )
+                          : null,
                     ),
                   ),
                 ),
@@ -71,13 +79,12 @@ class UserHeader extends StatelessWidget implements PreferredSizeWidget {
             bottom: 82 / -2,
             left: 0,
             right: 0,
-            child: AnimatedOpacity(
-              duration: Duration(seconds: 1),
-              opacity: showPendingTickets ? 1 : 0,
-              child: Container(
-                height: 82,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 24.0),
+            child: Container(
+              height: 82,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                child: AnimatedCard(
+                  direction: AnimatedCardDirection.top,
                   child: TicketsPendingComponent(),
                 ),
               ),
