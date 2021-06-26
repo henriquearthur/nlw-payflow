@@ -1,8 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.com.henriquearthur.payflow">
    <application
-        android:label="payflow"
-        android:icon="@mipmap/ic_launcher">
+        android:label="PayFlow"
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
