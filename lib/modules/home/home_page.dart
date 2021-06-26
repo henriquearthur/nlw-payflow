@@ -3,7 +3,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
 import 'package:payflow/modules/home/home_controller.dart';
 import 'package:payflow/shared/auth/auth_controller.dart';
-import 'package:payflow/shared/components/user_header.dart';
+import 'package:payflow/shared/components/user_header/user_header_component.dart';
 import 'package:payflow/shared/themes/app_colors.dart';
 
 class HomePage extends StatelessWidget {
@@ -18,11 +18,9 @@ class HomePage extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: AppColors.background,
-      appBar: UserHeader(
+      appBar: UserHeaderComponent(
         user: authController.user,
-        height: 184,
-        // TODO: Configurar essa visibilidade para um controller global e alterar valor quando mudar de page
-        showPendingTickets: true,
+        height: 184
       ),
       body: Observer(
         builder: (_) => IndexedStack(

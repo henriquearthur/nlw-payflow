@@ -1,3 +1,4 @@
+import 'package:animated_card/animated_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
@@ -13,48 +14,51 @@ class TicketsPendingComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: AppColors.secondary,
-        borderRadius: BorderRadius.circular(5),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 24.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Image.asset(
-              AppImages.logomini,
-              color: AppColors.background,
-              width: 56,
-              height: 34,
-            ),
-            Container(
-              width: 1,
-              height: 32,
-              color: AppColors.background.withOpacity(0.3),
-            ),
-            Observer(
-              builder: (_) {
-                return Text.rich(
-                  TextSpan(
-                    text: "Você tem ",
-                    style: AppTextStyles.captionBackground,
-                    children: [
-                      TextSpan(
-                        text: "${ticketsController.pendingTickets} boletos\n",
-                        style: AppTextStyles.captionBoldBackground,
-                      ),
-                      TextSpan(
-                        text: "cadastrados para pagar",
-                        style: AppTextStyles.captionBackground,
-                      ),
-                    ],
-                  ),
-                );
-              },
-            )
-          ],
+    return AnimatedCard(
+      direction: AnimatedCardDirection.top,
+      child: Container(
+        decoration: BoxDecoration(
+          color: AppColors.secondary,
+          borderRadius: BorderRadius.circular(5),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 24.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Image.asset(
+                AppImages.logomini,
+                color: AppColors.background,
+                width: 56,
+                height: 34,
+              ),
+              Container(
+                width: 1,
+                height: 32,
+                color: AppColors.background.withOpacity(0.3),
+              ),
+              Observer(
+                builder: (_) {
+                  return Text.rich(
+                    TextSpan(
+                      text: "Você tem ",
+                      style: AppTextStyles.captionBackground,
+                      children: [
+                        TextSpan(
+                          text: "${ticketsController.pendingTickets} boletos\n",
+                          style: AppTextStyles.captionBoldBackground,
+                        ),
+                        TextSpan(
+                          text: "cadastrados para pagar",
+                          style: AppTextStyles.captionBackground,
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              )
+            ],
+          ),
         ),
       ),
     );
