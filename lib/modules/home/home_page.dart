@@ -19,6 +19,7 @@ class HomePage extends StatelessWidget {
       appBar: UserHeader(
         user: User(name: "Henrique", email: "hnrq.art"),
         height: 184,
+        showPendingTickets: true,
       ),
       body: Observer(
         builder: (_) => IndexedStack(

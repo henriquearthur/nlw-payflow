@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:payflow/app_widget.dart';
+import 'package:payflow/shared/tickets/tickets_controller.dart';
 
 import 'modules/splash/splash_page.dart';
 import 'shared/auth/auth_controller.dart';
@@ -10,6 +11,7 @@ import 'shared/services/navigator_service.dart';
 void main() {
   GetIt.I.registerLazySingleton<NavigatorService>(() => NavigatorService());
   GetIt.I.registerLazySingleton<AuthController>(() => AuthController());
+  GetIt.I.registerLazySingleton<TicketsController>(() => TicketsController());
 
   runApp(MyApp());
 }
