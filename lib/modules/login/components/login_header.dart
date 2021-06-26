@@ -1,3 +1,4 @@
+import 'package:animated_card/animated_card.dart';
 import 'package:flutter/material.dart';
 import 'package:payflow/shared/themes/app_colors.dart';
 import 'package:payflow/shared/themes/app_images.dart';
@@ -23,10 +24,14 @@ class LoginHeader extends StatelessWidget {
             top: 50.0,
             left: 0,
             right: 0,
-            child: Center(
-              child: Image.asset(
-                AppImages.person,
-                height: 373,
+            child: AnimatedCard(
+              direction: AnimatedCardDirection.bottom,
+              duration: Duration(milliseconds: 500),
+              child: Center(
+                child: Image.asset(
+                  AppImages.person,
+                  height: 373,
+                ),
               ),
             ),
           ),

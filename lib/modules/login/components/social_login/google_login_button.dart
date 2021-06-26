@@ -11,39 +11,45 @@ class GoogleLoginButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 40.0),
-      height: 56.0,
+      margin: const EdgeInsets.symmetric(horizontal: 40),
+      height: 56,
       decoration: BoxDecoration(
         border: Border.all(color: AppColors.stroke, width: 1.0),
-        borderRadius: BorderRadius.circular(5.0),
+        borderRadius: BorderRadius.all(Radius.circular(5)),
         color: AppColors.shape,
       ),
-      child: Material(
-        color: Colors.transparent,
-        child: InkWell(
-          // TODO: Melhorar esse efeito de InkWell
-          onTap: onTap,
-          child: Row(
-            children: [
-              Container(
-                height: 56.0,
-                decoration: BoxDecoration(
-                  border: Border(
-                    right: BorderSide(color: AppColors.stroke, width: 1.0),
+      child: Row(
+        children: [
+          Container(
+            width: 24 + 32,
+            height: 56,
+            child: Center(
+                child: Image.asset(AppImages.google, width: 24, height: 24)),
+          ),
+          Expanded(
+            child: Material(
+              color: Colors.transparent,
+              child: InkWell(
+                onTap: onTap,
+                child: Container(
+                  height: 56,
+                  decoration: BoxDecoration(
+                    border: Border(
+                      left: BorderSide(color: AppColors.stroke, width: 1.0),
+                    ),
+                  ),
+                  child: Center(
+                    child: Text(
+                      "Entrar com Google",
+                      style: AppTextStyles.buttonGrey,
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                 ),
-                child: Image.asset(AppImages.google),
               ),
-              Expanded(
-                child: Text(
-                  "Entrar com Google",
-                  style: AppTextStyles.buttonGrey,
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
