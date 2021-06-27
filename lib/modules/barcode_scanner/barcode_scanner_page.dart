@@ -39,11 +39,11 @@ class _BarcodeScannerPageState extends State<BarcodeScannerPage> {
     super.dispose();
   }
 
-  goToInsertTicketPage() => GetIt.I
-      .get<NavigatorService>()
-      .currentState!
-      .pushReplacementNamed('/insert-ticket',
-          arguments: controller.status.barcode);
+  goToInsertTicketPage() =>
+      GetIt.I.get<NavigatorService>().currentState!.pushReplacementNamed(
+            '/insert-ticket',
+            arguments: controller.status.barcode,
+          );
 
   @override
   Widget build(BuildContext context) {

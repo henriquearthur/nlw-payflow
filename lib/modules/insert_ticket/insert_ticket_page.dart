@@ -9,8 +9,16 @@ import 'package:payflow/shared/themes/app_text_styles.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 
-class InsertTicketPage extends StatelessWidget {
+class InsertTicketPage extends StatefulWidget {
   final String? barcode;
+
+  InsertTicketPage({Key? key, this.barcode}) : super(key: key);
+
+  @override
+  _InsertTicketPageState createState() => _InsertTicketPageState();
+}
+
+class _InsertTicketPageState extends State<InsertTicketPage> {
   final InsertTicketController controller = InsertTicketController();
 
   final moneyInputTextController = MoneyMaskedTextController(
@@ -21,7 +29,13 @@ class InsertTicketPage extends StatelessWidget {
   final dueDateInputTextController = MaskedTextController(mask: "00/00/0000");
   final barcodeInputTextController = TextEditingController();
 
-  InsertTicketPage({Key? key, this.barcode}) : super(key: key);
+  @override
+  void initState() {
+    if (widget.barcode != null) {
+      barcodeInputTextController.text = widget.barcode!;
+    }
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -79,7 +93,6 @@ class InsertTicketPage extends StatelessWidget {
                     InputTextComponent(
                       label: "Código",
                       icon: FontAwesomeIcons.barcode,
-                      initialValue: barcode,
                       validator: controller.validateBarcode,
                       controller: barcodeInputTextController,
                       onChanged: (value) =>

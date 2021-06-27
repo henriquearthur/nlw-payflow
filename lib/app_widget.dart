@@ -46,7 +46,7 @@ class _AppWidgetState extends State<AppWidget> {
         "/home": (_) => HomePage(),
         "/login": (_) => LoginPage(),
         "/barcode-scanner": (_) => BarcodeScannerPage(),
-        "/insert-ticket": (_) => InsertTicketPage(
+        "/insert-ticket": (context) => InsertTicketPage(
               barcode: ModalRoute.of(context) != null
                   ? ModalRoute.of(context)!.settings.arguments.toString()
                   : null,
