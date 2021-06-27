@@ -1,3 +1,5 @@
+[![test_and_build](https://github.com/henriquearthur/nlw-payflow/actions/workflows/main.yml/badge.svg)](https://github.com/henriquearthur/nlw-payflow/actions/workflows/main.yml)
+
 # PayFlow
 
 Application built on NLW to practice creating interfaces and animations with more in-depth knowledge of Flutter.
